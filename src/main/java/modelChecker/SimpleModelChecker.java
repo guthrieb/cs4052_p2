@@ -9,6 +9,9 @@ public class SimpleModelChecker implements ModelChecker {
     public boolean check(Model model, StateFormula constraint, StateFormula query) {
         model.getStates();
         model.getTransitions();
+        System.out.println("model = [" + model + "], constraint = [" + constraint + "], query = [" + query + "]");
+
+
 
         // TODO Auto-generated method stub
         return false;
@@ -19,6 +22,7 @@ public class SimpleModelChecker implements ModelChecker {
         // TODO Auto-generated method stub
         return null;
     }
+
 
 
 

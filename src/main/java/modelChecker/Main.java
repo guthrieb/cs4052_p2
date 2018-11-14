@@ -12,9 +12,9 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final String QUERY_FILEPATH = "src/test/resources/ctl1";
+    private static final String QUERY_FILEPATH = "src/test/resources/ctl1.json";
     private static final String MODEL_FILEPATH = "src/test/resources/model1.json";
-    private static final String CONSTRAINT_FILE_PATH = "src/test/resources/constraint1";
+    private static final String CONSTRAINT_FILE_PATH = "src/test/resources/constraint1.json";
 
     public static void main(String[] args) {
         try {
@@ -24,7 +24,8 @@ public class Main {
             StateFormula query = queryParser.parse();
             StateFormula constraint = constraintParser.parse();
 
-
+            System.out.println("States: " + Arrays.toString(model.getStates()));
+            System.out.println("Transitions: " + Arrays.toString(model.getTransitions()));
             SimpleModelChecker simpleModelChecker = new SimpleModelChecker();
             simpleModelChecker.check(model, query, constraint);
 
