@@ -14,6 +14,7 @@ public class Eventually extends PathFormula {
         this.stateFormula = stateFormula;
         this.leftActions = leftActions;
         this.rightActions = rightActions;
+        System.out.println("SUBFORMULA:  F " + stateFormula);
     }
 
     public Set<String> getLeftActions() {

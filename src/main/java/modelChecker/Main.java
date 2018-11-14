@@ -21,10 +21,15 @@ public class Main {
             FormulaParser constraintParser = new FormulaParser(CONSTRAINT_FILE_PATH);
             FormulaParser queryParser = new FormulaParser(QUERY_FILEPATH);
             Model model = Model.parseModel(MODEL_FILEPATH);
+
+            System.out.println("\nPARSING QUERY \n***************");
             StateFormula query = queryParser.parse();
+
+
+            System.out.println("\nPARSING CONSTRAINT \n******************");
             StateFormula constraint = constraintParser.parse();
 
-            System.out.println("States: " + Arrays.toString(model.getStates()));
+            System.out.println("\nStates: " + Arrays.toString(model.getStates()));
             System.out.println("Transitions: " + Arrays.toString(model.getTransitions()));
             SimpleModelChecker simpleModelChecker = new SimpleModelChecker();
             simpleModelChecker.check(model, query, constraint);

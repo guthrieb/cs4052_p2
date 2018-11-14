@@ -11,6 +11,7 @@ public class Always extends PathFormula {
     public Always(StateFormula stateFormula, Set<String> actions) {
         this.stateFormula = stateFormula;
         this.actions = actions;
+        System.out.println("SUBFORMULA:  A " + stateFormula);
     }
 
     public Set<String> getActions() {

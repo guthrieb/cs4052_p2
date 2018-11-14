@@ -90,16 +90,19 @@ public class FormulaParser {
         char nextChar = reader.nextChar();
         switch (nextChar) {
         case RIGHT_BRACKET_TOKEN:
+            System.out.println("SUBFORMULA: " + subformula);
             return subformula;
         case OR_TOKEN: {
             validateNextChars(OR_TOKEN);
             StateFormula subformula2 = recursiveParseStateFormula();
+            System.out.println("SUBFORMULA: " + subformula + " OR " + subformula2);
             stateFormula = new Or(subformula, subformula2);
         }
             break;
         case AND_TOKEN: {
             validateNextChars(AND_TOKEN);
             StateFormula subformula2 = recursiveParseStateFormula();
+            System.out.println("SUBFORMULA: " + subformula + " AND " + subformula2);
             stateFormula = new And(subformula, subformula2);
         }
             break;
@@ -117,7 +120,11 @@ public class FormulaParser {
         case FORALL_TOKEN:
             return new ForAll(parsePathFormula());
         case THEREEXISTS_TOKEN:
-            return new ThereExists(parsePathFormula());
+            PathFormula path = parsePathFormula();
+            StringBuilder test = new StringBuilder();
+            path.writeToBuffer(test);
+            System.out.println("SUBFORMULA: E " + test.toString());
+            return new ThereExists(path);
         case TRUE_TOKEN_PREFIX:
             validateNextChars("RUE".toCharArray());
             return new BoolProp(true);
@@ -166,6 +173,7 @@ public class FormulaParser {
         StateFormula rightFormula = recursiveParseStateFormula();
         Set<String> actionSet1 = getActions(actionSet1Identifier);
         Set<String> actionSet2 = getActions(actionSet2Identifier);
+        System.out.println("SUBFORMULA: " + leftFormula + " " + actionSet1Identifier + "UNTIL" + actionSet2Identifier + " " + rightFormula);
         return new Until(leftFormula, rightFormula, actionSet1, actionSet2);
     }
 
