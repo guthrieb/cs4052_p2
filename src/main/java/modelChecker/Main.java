@@ -1,11 +1,8 @@
 package modelChecker;
 
 import formula.FormulaParser;
-import formula.stateFormula.AtomicProp;
 import formula.stateFormula.StateFormula;
 import model.Model;
-import model.State;
-import model.Transition;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -20,6 +17,9 @@ public class Main {
         try {
             FormulaParser constraintParser = new FormulaParser(CONSTRAINT_FILE_PATH);
             FormulaParser queryParser = new FormulaParser(QUERY_FILEPATH);
+
+            StateFormula formula1 = FormulaParser.parseRawFormulaString("AX(p && true)");
+
             Model model = Model.parseModel(MODEL_FILEPATH);
             StateFormula query = queryParser.parse();
             StateFormula constraint = constraintParser.parse();
