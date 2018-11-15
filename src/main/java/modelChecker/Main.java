@@ -6,6 +6,8 @@ import formula.stateFormula.StateFormula;
 import model.Model;
 import model.State;
 import model.Transition;
+import modelChecker.graphbuilding.FormulaTree;
+import modelChecker.graphbuilding.GraphDrawer;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -24,10 +26,9 @@ public class Main {
             StateFormula query = queryParser.parse();
             StateFormula constraint = constraintParser.parse();
 
-            System.out.println("States: " + Arrays.toString(model.getStates()));
-            System.out.println("Transitions: " + Arrays.toString(model.getTransitions()));
-            SimpleModelChecker simpleModelChecker = new SimpleModelChecker();
-            simpleModelChecker.check(model, query, constraint);
+
+            System.out.println(query);
+            GraphDrawer.draw(query);
 
         } catch (IOException e) {
             e.printStackTrace();
