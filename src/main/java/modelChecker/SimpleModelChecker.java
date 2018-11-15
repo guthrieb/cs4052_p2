@@ -22,8 +22,4 @@ public class SimpleModelChecker implements ModelChecker {
         // TODO Auto-generated method stub
         return null;
     }
-
-
-
-
 }

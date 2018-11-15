@@ -1,7 +1,6 @@
 package modelChecker;
 
 import formula.FormulaParser;
-import formula.stateFormula.AtomicProp;
 import formula.stateFormula.StateFormula;
 import model.Model;
 import model.State;
