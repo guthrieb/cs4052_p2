@@ -25,6 +25,7 @@ public class EnfConverter {
             StateFormula orLeft = convertToEnf(or.left);
             StateFormula orRight = convertToEnf(or.right);
 
+
             return new Or(orLeft, orRight);
         } else if (formula instanceof And) {
             And and = (And) formula;

@@ -5,13 +5,16 @@ import formula.stateFormula.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class FormulaTree {
-    public List<FormulaTree> stateChildren = new ArrayList<>();
-    StateFormula stateFormula;
-    PathFormula pathFormula;
+    private static final String LABEL_OPEN = " [label = \"";
+    private static final String LABEL_CLOSE = "\"]";
+    private List<FormulaTree> stateChildren = new ArrayList<>();
+    private StateFormula stateFormula;
+    private PathFormula pathFormula;
 
-    boolean usesStateFormula;
+    private boolean usesStateFormula;
 
 
     public FormulaTree(PathFormula pathFormula) {
@@ -38,7 +41,7 @@ public class FormulaTree {
         }
     }
 
-    public FormulaTree(StateFormula stateFormula) {
+    FormulaTree(StateFormula stateFormula) {
         usesStateFormula = true;
         this.stateFormula = stateFormula;
         if (stateFormula instanceof Not) {
@@ -100,10 +103,6 @@ public class FormulaTree {
                 builder.append("Until");
             }
         }
-//
-//        for(FormulaTree formulaTree : stateChildren) {
-//            builder.append(formulaTree.toString());
-//        }
 
 
         return builder.toString();
@@ -116,8 +115,34 @@ public class FormulaTree {
         if(isFirst) {
             builder.append("\ndigraph G1 {");
         }
+
+        int i = 0;
         for(FormulaTree formula : stateChildren) {
             builder.append("\n\t").append(toString()).append("_").append(hashCode()).append("->").append(formula.toString()).append("_").append(formula.hashCode());
+            if (!this.usesStateFormula) {
+                if (pathFormula instanceof Always) {
+                    builder.append(LABEL_OPEN).append(((Always) pathFormula).getActions());
+                    builder.append(LABEL_CLOSE);
+
+                } else if (pathFormula instanceof Next) {
+                    builder.append(LABEL_OPEN).append(((Next) pathFormula).getActions());
+                    builder.append(LABEL_CLOSE);
+
+                } else if (pathFormula instanceof Until) {
+                    Set<String> leftActions = ((Until) pathFormula).getLeftActions();
+                    Set<String> rightActions = ((Until) pathFormula).getRightActions();
+                    builder.append(LABEL_OPEN).append((i == 0) ? leftActions : rightActions);
+                    i++;
+                    builder.append(LABEL_CLOSE);
+
+                } else if (pathFormula instanceof Eventually) {
+                    Set<String> leftActions = ((Eventually) pathFormula).getLeftActions();
+                    Set<String> rightActions = ((Eventually) pathFormula).getRightActions();
+                    builder.append(LABEL_OPEN).append((i == 0) ? leftActions : rightActions);
+                    i++;
+                    builder.append(LABEL_CLOSE);
+                }
+            }
         }
 
         for(FormulaTree formulaTree : stateChildren) {
@@ -131,7 +156,7 @@ public class FormulaTree {
         return builder.toString();
     }
 
-    public String inDotFormat() {
+    String inDotFormat() {
         return inDotFormat(true, 0);
     }
 }

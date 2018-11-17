@@ -1,10 +1,10 @@
 package modelChecker;
 
 import formula.stateFormula.StateFormula;
+import formula.stateFormula.StateFormulaHandler;
 import model.Model;
 import model.State;
 import modelChecker.tracing.InvalidStateFormula;
-import modelChecker.tracing.StateFormulaHandler;
 
 import java.util.Set;
 
@@ -17,7 +17,10 @@ public class SimpleModelChecker implements ModelChecker {
         System.out.println("model = [" + model + "], constraint = [" + constraint + "], query = [" + query + "]");
 
         Set<State> states = StateFormulaHandler.getStates(model, query);
-        System.out.println(states);
+
+
+        System.out.println("Query: " + query);
+        System.out.println("States Satisfying Query: " + states);
 
         // TODO Auto-generated method stub
         return false;

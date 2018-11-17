@@ -1,16 +1,12 @@
 package modelChecker.graphbuilding;
 
-import formula.pathFormula.PathFormula;
 import formula.stateFormula.StateFormula;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Path;
 
 public class GraphDrawer {
-    public static void draw(StateFormula toDraw) throws FileNotFoundException {
+    public static void draw(StateFormula toDraw) throws IOException {
         FormulaTree formulaTree = new FormulaTree(toDraw);
         String dotFormat = formulaTree.inDotFormat();
 
