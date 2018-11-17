@@ -2,6 +2,7 @@ package modelChecker;
 
 import formula.stateFormula.StateFormula;
 import model.Model;
+import modelChecker.tracing.InvalidStateFormula;
 
 /**
  * Defines the interface to model checker.
@@ -22,7 +23,7 @@ public interface ModelChecker {
      * @return - true if the model satisfies the query under the applied
      *         constraint.
      */
-    public boolean check(Model model, StateFormula constraint, StateFormula query);
+    public boolean check(Model model, StateFormula constraint, StateFormula query) throws InvalidStateFormula;
 
     // Returns a trace of the previous check attempt if it failed.
     public String[] getTrace();

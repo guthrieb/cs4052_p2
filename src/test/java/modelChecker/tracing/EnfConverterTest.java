@@ -2,10 +2,10 @@ package modelChecker.tracing;
 
 import org.junit.Test;
 
-public class EnfConverter {
+public class EnfConverterTest {
     @Test
     public void test() {
-        EnfConverter converter = new EnfConverter();
+        EnfConverterTest converter = new EnfConverterTest();
         //TODO Run tests on converter
     }
 }

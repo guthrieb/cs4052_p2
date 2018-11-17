@@ -7,6 +7,8 @@ import model.State;
 import model.Transition;
 import modelChecker.graphbuilding.FormulaTree;
 import modelChecker.graphbuilding.GraphDrawer;
+import modelChecker.tracing.EnfConverter;
+import modelChecker.tracing.InvalidStateFormula;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -21,15 +23,17 @@ public class Main {
         try {
             FormulaParser constraintParser = new FormulaParser(CONSTRAINT_FILE_PATH);
             FormulaParser queryParser = new FormulaParser(QUERY_FILEPATH);
+            StateFormula stateFormula1 = FormulaParser.parseRawFormulaString("EF(p)");
             Model model = Model.parseModel(MODEL_FILEPATH);
             StateFormula query = queryParser.parse();
             StateFormula constraint = constraintParser.parse();
 
-
-            System.out.println(query);
-            GraphDrawer.draw(query);
-
-        } catch (IOException e) {
+            EnfConverter converter = new EnfConverter();
+            StateFormula stateFormula = converter.convertToEnf(stateFormula1);
+            
+            ModelChecker modelChecker = new SimpleModelChecker();
+            modelChecker.check(model, constraint, stateFormula);
+        } catch (IOException | InvalidStateFormula e) {
             e.printStackTrace();
         }
     }

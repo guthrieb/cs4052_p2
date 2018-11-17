@@ -40,4 +40,13 @@ public class Model {
         return transitions;
     }
 
+    public State getState(String stateName) throws InvalidStateException {
+        for(State state : states) {
+            if(state.getName().equals(stateName)) {
+                return state;
+            }
+        }
+
+        throw new InvalidStateException("State not found: " + stateName);
+    }
 }

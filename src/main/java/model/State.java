@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * 
  * */
@@ -28,7 +30,7 @@ public class State {
      * Returns the labels of the state
      * @return Array of string labels
      * */
-    public String[] getLabel() {
+    public String[] getLabels() {
 	return label;
     }
 
@@ -37,5 +39,18 @@ public class State {
         return "State{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        State state = (State) o;
+        return Objects.equals(getName(), state.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }
