@@ -53,9 +53,6 @@ public class Model {
     }
 
     public boolean stateReachableViaActions(State source, State target, Set<String> actions) {
-        System.out.println("Source: " + source);
-        System.out.println("Target: " + target);
-        System.out.println("Actions: " + actions);
 
         Transition transition = getTransition(source.getName(), target.getName());
 
