@@ -26,7 +26,7 @@ public class ModelCheckerTestAsCTLForAll {
         ModelChecker modelChecker = new SimpleModelChecker();
         boolean check = modelChecker.check(model, fairnessConstraint, query);
 
-        Assert.assertTrue(check);
+        Assert.assertFalse(check);
     }
 
     @Test

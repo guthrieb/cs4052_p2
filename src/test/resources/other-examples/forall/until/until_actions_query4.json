@@ -1,9 +1,11 @@
 {
-  "formula": "(A((q) xUy (p )))",
+  "formula": "(A((q || p) xUy (p )))",
   "x": [
-    "act1"
+    "act1",
+    "act2"
   ],
   "y": [
-    "act2"
+    "act1",
+    "act3"
   ]
 }

@@ -1,0 +1,172 @@
+{
+  "states": [
+    {
+      "init": true,
+      "name": "s0",
+      "label": [
+        "n",
+        "m",
+        "y"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s1",
+      "label": [
+        "w",
+        "m",
+        "y"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s2",
+      "label": [
+        "c",
+        "m"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s3",
+      "label": [
+        "n",
+        "x",
+        "y"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s4",
+      "label": [
+        "d",
+        "n"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s5",
+      "label": [
+        "w",
+        "x",
+        "y"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s6",
+      "label": [
+        "c",
+        "x"
+      ]
+    },
+    {
+      "init": false,
+      "name": "s7",
+      "label": [
+        "w",
+        "d"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "source": "s0",
+      "target": "s1",
+      "actions": [
+        "r1"
+      ]
+    },
+    {
+      "source": "s0",
+      "target": "s3",
+      "actions": [
+        "r2"
+      ]
+    },
+    {
+      "source": "s1",
+      "target": "s2",
+      "actions": [
+        "alpha1"
+      ]
+    },
+    {
+      "source": "s1",
+      "target": "s5",
+      "actions": [
+        "r2"
+      ]
+    },
+    {
+      "source": "s2",
+      "target": "s0",
+      "actions": [
+        "beta1"
+      ]
+    },
+    {
+      "source": "s2",
+      "target": "s6",
+      "actions": [
+        "r2"
+      ]
+    },
+    {
+      "source": "s3",
+      "target": "s5",
+      "actions": [
+        "r1"
+      ]
+    },
+    {
+      "source": "s3",
+      "target": "s4",
+      "actions": [
+        "alpha2"
+      ]
+    },
+    {
+      "source": "s4",
+      "target": "s0",
+      "actions": [
+        "beta2"
+      ]
+    },
+    {
+      "source": "s4",
+      "target": "s7",
+      "actions": [
+        "r1"
+      ]
+    },
+    {
+      "source": "s5",
+      "target": "s6",
+      "actions": [
+        "alpha1"
+      ]
+    },
+    {
+      "source": "s5",
+      "target": "s7",
+      "actions": [
+        "alpha2"
+      ]
+    },
+    {
+      "source": "s6",
+      "target": "s3",
+      "actions": [
+        "beta1"
+      ]
+    },
+    {
+      "source": "s7",
+      "target": "s1",
+      "actions": [
+        "beta2"
+      ]
+    }
+  ]
+}

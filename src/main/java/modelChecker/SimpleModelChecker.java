@@ -70,7 +70,7 @@ public class SimpleModelChecker implements ModelChecker {
     }
 
     @Override
-    public String[] getTrace() throws InvalidTracingException {
+    public String[] getTrace() throws InvalidTracingException, InvalidStateFormula {
         Tracer tracer = new Tracer();
 
         return tracer.getTrace(model, constraintRestrictedStates, queriedStates, query);

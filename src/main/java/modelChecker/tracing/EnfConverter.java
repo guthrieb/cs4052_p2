@@ -150,8 +150,10 @@ public class EnfConverter {
             Not notRight = new Not(rightFormula);
 
             Not rightThereExists = new Not(new ThereExists(new Always(notRight, new HashSet<String>())));
+//            Not rightThereExists = new Not(new ThereExists(new Always(notRight, originalUntil.getRightActions())));
 
             And nestedAnd = new And(notLeft, notRight);
+//            Not leftThereExists = new Not(new ThereExists(new Until(notRight, nestedAnd, originalUntil.getLeftActions(), originalUntil.getRightActions())));
             Not leftThereExists = new Not(new ThereExists(new Until(notRight, nestedAnd, new HashSet<String>(), new HashSet<String>())));
 
 
@@ -199,6 +201,7 @@ public class EnfConverter {
 
             And leftSatisfyingStates = new And(leftActions, rightActions);
             return new And(leftSatisfyingStates, new And(leftThereExists, rightThereExists));
+//            return new And(leftThereExists, rightThereExists);
         } else {
             return null;
         }

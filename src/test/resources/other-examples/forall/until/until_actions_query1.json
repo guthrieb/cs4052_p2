@@ -1,7 +1,7 @@
 {
-  "formula": "(A(q xUy p))",
+  "formula": "A(q xUy p)",
   "x": [
-    "act1"
+    "act2"
   ],
   "y": [
     "act2"

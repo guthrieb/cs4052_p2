@@ -20,10 +20,10 @@ to implement a model checker that,
       <ul class="itemize1">
       <li class="itemize">Accepts a transition system ts, an asCTL constraint <span 
 class="cmmi-12">c </span>and an asCTL
-      formula <span 
+          stateFormula <span
 class="cmmi-12">f </span>and
       </li>
-      <li class="itemize">Returns whether or not the transition system ts satisfies the formula
+          <li class="itemize">Returns whether or not the transition system ts satisfies the stateFormula
       <span 
 class="cmmi-12">f </span>under the constraint <span 
 class="cmmi-12">c </span>- that is, whether or not TS satisfies <span 
@@ -40,22 +40,24 @@ to.
 <!--l. 18--><p class="noindent" >
    <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
  id="x1-20002"></a>Input Formula</h3>
-<!--l. 21--><p class="noindent" >The formula parser reads in formulae in a JSON format. The JSON file must
+   <!--l. 21--><p class="noindent">The stateFormula parser reads in formulae in a JSON format. The JSON file must
 contain a single JSON object with one mandatory member of type string:
-<span class="obeylines-h"><span class="verb"><span 
-class="cmtt-12">"formula"</span></span></span>. Other fields are described later.
+       <span class="obeylines-h"><span class="verb"><span
+               class="cmtt-12">"stateFormula"</span></span></span>. Other fields are described later.
    <!--l. 23-->
-<div class="lstlisting" id="listing-1"><span class="label"><a 
- id="x1-2001r1"></a></span><span 
-class="cmsy-10x-x-120">{</span>&#x00A0;<br /><span class="label"><a 
- id="x1-2002r2"></a></span>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8221;formula&#8221;:&#8221;...&#8221;&#x00A0;<br /><span class="label"><a 
+   <div class="lstlisting" id="listing-1"><span class="label"><a
+           id="x1-2001r1"></a></span><span
+           class="cmsy-10x-x-120">{</span>&#x00A0;<br/><span class="label"><a
+           id="x1-2002r2"></a></span>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8221;stateFormula&#8221;:&#8221;...&#8221;&#x00A0;<br/><span
+           class="label"><a
  id="x1-2003r3"></a></span><span 
 class="cmsy-10x-x-120">}</span>
    </div>
-<!--l. 29--><p class="indent" >   As the name suggests, the <span class="obeylines-h"><span class="verb"><span 
-class="cmtt-12">"formula"</span></span></span> field contains the <span 
-class="cmti-12">asCTL </span>formula. The
-practical specification already describes the grammar of an asCTL formula. The
+   <!--l. 29-->
+   <p class="indent"> As the name suggests, the <span class="obeylines-h"><span class="verb"><span
+           class="cmtt-12">"stateFormula"</span></span></span> field contains the <span
+           class="cmti-12">asCTL </span>stateFormula. The
+       practical specification already describes the grammar of an asCTL stateFormula. The
 table below gives the mapping from symbols to their encoding as expected by the
 parser:
                                                                           
@@ -188,16 +190,16 @@ class="cmsy-10x-x-120">||</span>&#x00A0;dog)&#x00A0;<br /><span class="label"><a
  id="x1-40002"></a>Specifying action constraints</h4>
 <!--l. 67--><p class="noindent" >In order to add action constraints, one or more sets of actions must be added to
 the JSON object as JSON String arrays. Each member of type string array is
-treated as an action set which can be referred to in the formula string by using
+       treated as an action set which can be referred to in the stateFormula string by using
 the array member key. For example:
    <!--l. 69-->
-                                                                          
 
-                                                                          
-<div class="lstlisting" id="listing-3"><span class="label"><a 
- id="x1-4001r1"></a></span><span 
-class="cmsy-10x-x-120">{</span>&#x00A0;<br /><span class="label"><a 
- id="x1-4002r2"></a></span>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8221;formula&#8221;:&#8221;EF&#x00A0;(s&#x00A0;aUb&#x00A0;t)&#8221;,&#x00A0;<br /><span class="label"><a 
+
+   <div class="lstlisting" id="listing-3"><span class="label"><a
+           id="x1-4001r1"></a></span><span
+           class="cmsy-10x-x-120">{</span>&#x00A0;<br/><span class="label"><a
+           id="x1-4002r2"></a></span>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8221;stateFormula&#8221;:&#8221;EF&#x00A0;(s&#x00A0;aUb&#x00A0;t)&#8221;,&#x00A0;<br/><span
+           class="label"><a
  id="x1-4003r3"></a></span>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8221;a&#8221;:[&#8221;action1&#8221;,&#8221;action2&#8221;],&#x00A0;<br /><span class="label"><a 
  id="x1-4004r4"></a></span>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8221;b&#8221;:[&#8221;action3&#8221;,&#8221;action4&#8221;]&#x00A0;<br /><span class="label"><a 
  id="x1-4005r5"></a></span><span 
@@ -211,7 +213,7 @@ it.
    <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
  id="x1-50003"></a>Java Representation</h3>
 <!--l. 82--><p class="noindent" >The Java representation is close to that of the grammar tree. For example, each
-possible type of state formula (such as <span 
+       possible type of state stateFormula (such as <span
 class="cmsy-10x-x-120">¬</span>&#x03A6;<span 
 class="cmsy-10x-x-120">&#x2223;</span>&#x03A6; <span 
 class="cmsy-10x-x-120">&#x2227; </span>&#x03A6;<span 
@@ -227,12 +229,12 @@ class="cmtt-12">&#x00A0;ThereExists.class,</span><span
 class="cmtt-12">&#x00A0;...</span></span></span>) that extend a
 <span class="obeylines-h"><span class="verb"><span 
 class="cmtt-12">StateFormula</span></span></span> class. The same is done for the path formulae. These objects are
-built up into a tree representation of the parsed formula allowing formulae to be
+       built up into a tree representation of the parsed stateFormula allowing formulae to be
 explored recursively - see the method <span class="obeylines-h"><span class="verb"><span 
 class="cmtt-12">writeToBuffer()</span></span></span> as an example
-(this method is used to recurse through and print formulae). Figure&#x00A0;<a 
-href="#x1-5001r1">1<!--tex4ht:ref: formula-tree --></a>
-shows an example of how a formula may be represented as a tree of Java
+       (this method is used to recurse through and print formulae). Figure&#x00A0;<a
+               href="#x1-5001r1">1<!--tex4ht:ref: stateFormula-tree --></a>
+       shows an example of how a stateFormula may be represented as a tree of Java
 objects.
 <!--l. 84--><p class="indent" >   <hr class="figure"><div class="figure" 
 >
@@ -250,15 +252,15 @@ objects.
 <br /> <div class="caption" 
 ><span class="id">Figure&#x00A0;1: </span><span  
 class="content">((AG p) &amp;&amp; E(p U q))</span></div><!--tex4ht:label?: x1-5001r1 -->
-<!--l. 88--><p class="noindent" ><img 
-src="formula-tree.png" alt="PIC"  
+    <!--l. 88--><p class="noindent"><img
+        src="stateFormula-tree.png" alt="PIC"
 ></div>
                                                                           
 
                                                                           
 <!--l. 90--><p class="indent" >   </div><hr class="endfigure">
-<!--l. 92--><p class="indent" >   Note, you can verify that the correct formula has been parsed simply by
-calling print on the formula objects returned by the parser.
+   <!--l. 92--><p class="indent"> Note, you can verify that the correct stateFormula has been parsed simply by
+       calling print on the stateFormula objects returned by the parser.
    <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
  id="x1-60004"></a>Parsing Transition Systems</h3>
 <!--l. 96--><p class="noindent" >The transition systems (the models) are also specified in the JSON format. The
@@ -277,7 +279,7 @@ checker. Example models and formulae are provided in <span class="obeylines-h"><
 class="cmtt-12">src/test/resources</span></span></span>. An
 example JUnit test case can be found in in <span class="obeylines-h"><span class="verb"><span 
 class="cmtt-12">src/test/java/modelChecker</span></span></span> that
-demonstrates how to parse and test a model against a formula.
+       demonstrates how to parse and test a model against a stateFormula.
 <!--l. 102--><p class="indent" >   The code must be compiled and tested using gradle. To build the project using
 gradle, the syntax is as follows:
                                                                           

@@ -1,0 +1,17 @@
+
+digraph G1 {
+    s0_n_m_y -> s1_w_m_y [label = "[r1]"]
+    s0_n_m_y -> s3_n_x_y [label = "[r2]"]
+    s1_w_m_y -> s2_c_m [label = "[alpha1]"]
+    s1_w_m_y -> s5_w_x_y [label = "[r2]"]
+    s2_c_m -> s0_n_m_y [label = "[beta1]"]
+    s2_c_m -> s6_c_x [label = "[r2]"]
+    s3_n_x_y -> s5_w_x_y [label = "[r1]"]
+    s3_n_x_y -> s4_n_d [label = "[alpha2]"]
+    s4_n_d -> s0_n_m_y [label = "[beta2]"]
+    s4_n_d -> s7_w_d [label = "[r1]"]
+    s5_w_x_y -> s6_c_x [label = "[alpha1]"]
+    s5_w_x_y -> s7_w_d [label = "[alpha2]"]
+    s6_c_x -> s3_n_x_y [label = "[beta1]"]
+    s7_w_d -> s1_w_m_y [label = "[beta2]"]
+}
