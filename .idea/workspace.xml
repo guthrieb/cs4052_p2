@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/resources/other-examples/thereexists/next/next_actions_query2.json" line="2" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="0b4921a5-e13e-49a4-b2b4-034855d1962c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelChecker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelChecker/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -169,7 +164,7 @@
         <counts>
           <entry key="gradle" value="1" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="8" />
+          <entry key="java" value="9" />
           <entry key="json" value="4" />
           <entry key="png" value="4" />
         </counts>
@@ -178,7 +173,7 @@
         <counts>
           <entry key="Groovy" value="1" />
           <entry key="Image" value="4" />
-          <entry key="JAVA" value="8" />
+          <entry key="JAVA" value="9" />
           <entry key="JSON" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
@@ -187,14 +182,20 @@
         <counts>
           <entry key="gradle" value="7" />
           <entry key="java" value="1480" />
-          <entry key="txt" value="59" />
+          <entry key="txt" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="7" />
           <entry key="JAVA" value="1480" />
-          <entry key="PLAIN_TEXT" value="59" />
+          <entry key="PLAIN_TEXT" value="141" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.remote" value="1" />
+          <entry key="git.branch.merge" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -204,8 +205,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+            <state relative-caret-position="135">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/Tracer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -213,20 +223,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="51" column="10" lean-forward="true" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -243,23 +241,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../../../scratch/sm347/.gradle/caches/modules-2/files-2.1/guru.nidi/graphviz-java/0.8.0/ebf05a12a240c590d25af4cf4ae1eb0a53764a2b/graphviz-java-0.8.0-sources.jar!/guru/nidi/graphviz/model/ImmutableGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+            <state relative-caret-position="348">
+              <caret line="47" column="5" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="47" selection-end-column="5" />
               <folding>
                 <element signature="e#1843#1844#0" expanded="true" />
                 <element signature="e#1912#1913#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/Tracer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -273,7 +259,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="345">
               <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
             </state>
           </provider>
@@ -346,7 +332,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tracing" />
+        <entry key="$PROJECT_DIR$" value="basic_checking" />
       </map>
     </option>
   </component>
@@ -546,9 +532,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6170730303000" />
+        <entry key="$PROJECT_DIR$" value="6170773959000" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1598547321" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="981081354" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2077093676" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="2717128771" />
       </map>
@@ -869,7 +855,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///cs/home/jg229/Documents/CS4052/assignment/src/main/java/modelChecker/tracing/EnfConverter.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542829204162" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542829475824" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -1032,13 +1018,24 @@
       <option name="project" value="LOCAL" />
       <updated>1542818948979</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added more functions to graph drawer">
+      <created>1542829300763</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1542829300763</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merged graph drawing branch with dev branch">
+      <created>1542829637926</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1542829637926</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 53m 24s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 53m 59s.xml">
       <configuration name="All in Simple_test" configurationId="JUnit" />
     </history-entry>
@@ -1066,6 +1063,9 @@
     <history-entry file="All_in_Simple_test - 2018.11.21 at 18h 25m 41s.xml">
       <configuration name="All in Simple_test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_Simple_test - 2018.11.21 at 19h 40m 06s.xml">
+      <configuration name="All in Simple_test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="2198000" />
@@ -1074,7 +1074,7 @@
     <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15491453" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15491453" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1083,7 +1083,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49786323" weight="0.32915717" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.900641" visible="true" weight="0.2574032" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5090812" weight="0.43052393" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946582" weight="0.3997722" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1091,9 +1091,9 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49893162" weight="0.15603645" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.48504272" weight="0.24487472" />
       <window_info anchor="bottom" id="Statistic" order="9" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946582" weight="0.32915717" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.49893162" visible="true" weight="0.32915717" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49358973" weight="0.25284737" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.099358976" side_tool="true" weight="0.2574032" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50106835" side_tool="true" visible="true" weight="0.32915717" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1185,7 +1185,9 @@
     <MESSAGE value="changed gradle file" />
     <MESSAGE value="Added path consideration to model checker, included model diagrams" />
     <MESSAGE value="Added graph drawing library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added graph drawing library" />
+    <MESSAGE value="Added more functions to graph drawer" />
+    <MESSAGE value="Merged graph drawing branch with dev branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged graph drawing branch with dev branch" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1462,7 +1464,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="345">
           <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
@@ -1496,10 +1498,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/drawings/ex2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="52" column="2" lean-forward="true" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../../scratch/sm347/.gradle/caches/modules-2/files-2.1/guru.nidi/graphviz-java/0.8.0/ebf05a12a240c590d25af4cf4ae1eb0a53764a2b/graphviz-java-0.8.0-sources.jar!/guru/nidi/graphviz/model/ImmutableGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+        <state relative-caret-position="348">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="47" selection-end-column="5" />
           <folding>
             <element signature="e#1843#1844#0" expanded="true" />
             <element signature="e#1912#1913#0" expanded="true" />
@@ -1507,40 +1529,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drawings/ex2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="2" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="51" column="10" lean-forward="true" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/Tracer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
