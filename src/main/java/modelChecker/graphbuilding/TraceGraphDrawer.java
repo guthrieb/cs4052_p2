@@ -16,14 +16,27 @@ import java.util.Set;
 
 import static guru.nidi.graphviz.model.Factory.*;
 
-public class ModelGraphDrawer {
+public class TraceGraphDrawer {
 
-    /**
-     * Creates a new Graph Drawer for a model
-     */
-    public ModelGraphDrawer() {
+    Graph g;
+
+    public TraceGraphDrawer() {
+        this.g = graph().directed();
     }
 
+    public void addNode(Node node, Color color) {
+        g = g.with(node);
+    }
+
+    public void addLink(Node from, Node to, Color color) {
+        g = g.with(from.link(to(to).with(color)));
+
+    }
+
+    public void toPNG() throws IOException {
+        Graphviz.fromGraph(g).width(900).render(Format.PNG).toFile(new File("drawings/failed_path.png"));
+        System.out.println("Printed graph.");
+    }
 
     /**
      * Draws a directed graph of the model showing the path to the identified failure
@@ -43,29 +56,19 @@ public class ModelGraphDrawer {
 
         Graph g = graph().directed();
 
-        for (Node node : nodesInGraph) {
-            addNodeToGraph(node, g);
-        }
-
-        for (Node[] nodePair : links) {
-            addLinkToGraph(nodePair[0], nodePair[1], Color.BLACK, g);
-        }
+//        for (Node node : nodesInGraph) {
+//            addNodeToGraph(node, g);
+//        }
 //
+//        for (Node[] nodePair : links) {
+//            addLinkToGraph(nodePair[0], nodePair[1], Color.BLACK, g);
+//        }
+////
 //        g = g.with(main.link(to(compare)).with(Color.RED));
 ////        g = g.link(main, node("compare").with(Color.PALEGREEN1));
 
         Graphviz.fromGraph(g).width(900).render(Format.PNG).toFile(new File("drawings/ex2.png"));
 
-    }
-
-    public Graph addNodeToGraph(Node node, Graph graph) {
-        graph = graph.with(node);
-        return graph;
-    }
-
-    public Graph addLinkToGraph(Node firstNode, Node secondNode, Color color, Graph graph) {
-        graph = graph.with(firstNode.link(to(secondNode)).with(color));
-        return graph;
     }
 
 
