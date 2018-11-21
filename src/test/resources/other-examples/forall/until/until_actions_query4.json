@@ -1,5 +1,5 @@
 {
-  "formula": "(A((q || p) xUy (p )))",
+  "formula": "(A(((q) || (p)) xUy (p )))",
   "x": [
     "act1",
     "act2"

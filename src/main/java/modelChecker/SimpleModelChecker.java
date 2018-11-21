@@ -11,6 +11,7 @@ import modelChecker.tracing.InvalidStateFormula;
 import modelChecker.tracing.Tracer;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,10 +40,10 @@ public class SimpleModelChecker implements ModelChecker {
         System.out.println("ENF QUERY: " + enfQuery);
 
         this.constraintRestrictedStates = StateFormulaHandler.getStates(model,
-                new HashSet<>(Arrays.asList(model.getStates())), enfConstraint, new PathTree(enfConstraint, 0));
+                new HashSet<>(Arrays.asList(model.getStates())), enfConstraint, new PathTree(enfConstraint, 0), new HashMap<StateFormula, PathTree>());
 
         PathTree pathTree = new PathTree(null, 0);
-        this.queriedStates = StateFormulaHandler.getStates(model, constraintRestrictedStates, enfQuery, pathTree);
+        this.queriedStates = StateFormulaHandler.getStates(model, constraintRestrictedStates, enfQuery, pathTree, new HashMap<StateFormula, PathTree>());
 
 
         Set<State> states = insersectInitialStates(constraintRestrictedStates, queriedStates);
@@ -74,10 +75,6 @@ public class SimpleModelChecker implements ModelChecker {
         Tracer tracer = new Tracer();
 
         return tracer.getTrace(model, constraintRestrictedStates, queriedStates, query);
-//        if(modelHolds) {
-//            return new String[0];
-//        } else {
-//            return null;
     }
 }
 

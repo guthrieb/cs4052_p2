@@ -1,7 +1,8 @@
 package formula.pathFormula;
 
-import formula.*;
-import formula.stateFormula.*;
+import formula.FormulaParser;
+import formula.stateFormula.StateFormula;
+
 import java.util.Set;
 
 public class Until extends PathFormula {
@@ -30,7 +31,9 @@ public class Until extends PathFormula {
     public void writeToBuffer(StringBuilder buffer) {
         buffer.append("(");
         left.writeToBuffer(buffer);
+        buffer.append(leftActions);
         buffer.append(" " + FormulaParser.UNTIL_TOKEN + " ");
+        buffer.append(rightActions);
         right.writeToBuffer(buffer);
         buffer.append(")");
     }

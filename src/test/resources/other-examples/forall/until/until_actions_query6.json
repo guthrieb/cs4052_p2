@@ -1,0 +1,9 @@
+{
+  "formula": "A(TRUE xUy p)",
+  "x": [
+    "act1"
+  ],
+  "y": [
+    "act2"
+  ]
+}

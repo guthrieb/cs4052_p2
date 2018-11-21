@@ -1,6 +1,9 @@
 package modelChecker.graphbuilding;
 
+import formula.pathFormula.*;
+import formula.stateFormula.ForAll;
 import formula.stateFormula.StateFormula;
+import formula.stateFormula.ThereExists;
 import model.State;
 
 import java.util.ArrayList;
@@ -19,7 +22,6 @@ public class PathTree {
     }
 
     public void setAcceptingStates(Set<State> acceptingStates) {
-        System.out.println("Adding accepting states " + acceptingStates + " to " + formula);
         this.acceptingStates = acceptingStates;
     }
 
@@ -38,7 +40,34 @@ public class PathTree {
 
         depthString.append("|");
 
-        string.append("\n").append(depthString).append("******** EVALUATING " + depth + " ").append(formula).append(" -- ");
+        string.append("\n").append(depthString).append("**** EVALUATING ").append(depth).append(" ").append(formula).append(" -- ");
+        if (formula instanceof ThereExists) {
+            PathFormula pathFormula = ((ThereExists) formula).pathFormula;
+            if (pathFormula instanceof Next) {
+                string.append(((Next) pathFormula).getActions());
+            } else if (pathFormula instanceof Always) {
+                string.append(((Always) pathFormula).getActions());
+            } else if (pathFormula instanceof Until) {
+                string.append("Left actions: ").append(((Until) pathFormula).getLeftActions());
+                string.append("Right actions: ").append(((Until) pathFormula).getRightActions());
+            } else if (pathFormula instanceof Eventually) {
+                string.append("Left actions: ").append(((Eventually) pathFormula).getLeftActions());
+                string.append("Right actions: ").append(((Eventually) pathFormula).getLeftActions());
+            }
+        } else if (formula instanceof ForAll) {
+            PathFormula pathFormula = ((ForAll) formula).pathFormula;
+            if (pathFormula instanceof Next) {
+                string.append(((Next) pathFormula).getActions());
+            } else if (pathFormula instanceof Always) {
+                string.append(((Always) pathFormula).getActions());
+            } else if (pathFormula instanceof Until) {
+                string.append("Left actions: ").append(((Until) pathFormula).getLeftActions());
+                string.append("Right actions: ").append(((Until) pathFormula).getRightActions());
+            } else if (pathFormula instanceof Eventually) {
+                string.append("Left actions: ").append(((Eventually) pathFormula).getLeftActions());
+                string.append("Right actions: ").append(((Eventually) pathFormula).getLeftActions());
+            }
+        }
         string.append(":").append(acceptingStates);
         for (PathTree child : children) {
 
@@ -50,4 +79,7 @@ public class PathTree {
         return string.toString();
     }
 
+    public Set<State> getAcceptingStates() {
+        return acceptingStates;
+    }
 }

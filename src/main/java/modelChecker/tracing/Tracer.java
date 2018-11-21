@@ -8,8 +8,7 @@ import model.State;
 import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.graphbuilding.PathTree;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Tracer {
     public String[] getTrace(Model model, Set<State> stateSet, Set<State> acceptingStates, StateFormula formula) throws InvalidTracingException, InvalidStateFormula {
@@ -18,23 +17,37 @@ public class Tracer {
 
         State initialState = getFailedInitialState(failedStates);
         if (initialState == null) {
-            throw new InvalidTracingException();
+            throw new InvalidTracingException("Not initial state fails");
         }
 
 
         //Assume the initial entry in formula will be one of Forall or Exists
-        PathTree tree = buildPathTree(model, stateSet, new Not(formula));
+        HashMap<StateFormula, PathTree> pathData = new HashMap<>();
+        EnfConverter enfConverter = new EnfConverter(model);
 
-        String[] path = generatePath(initialState, failedStates, new Not(formula), tree);
+
+        StateFormula stateFormula = enfConverter.convertToEnf(formula);
+        if (stateFormula instanceof Not) {
+            stateFormula = ((Not) stateFormula).stateFormula;
+        } else {
+            throw new InvalidTracingException("Passed Invalid Formula: " + formula);
+        }
+
+        PathTree tree = buildPathTree(model, stateSet, stateFormula, pathData);
+
+
+        System.out.println(stateFormula);
+        System.out.println("\n\n\n");
+        for (Map.Entry<StateFormula, PathTree> entry : pathData.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().getAcceptingStates());
+        }
+
+
+        List<State> path = PathTracer.generatePath(model, initialState, stateSet, failedStates, stateFormula, tree, pathData);
 
         return new String[0];
     }
 
-    private String[] generatePath(State initialState, Set<State> failedStates, StateFormula formula, PathTree tree) {
-
-
-        return new String[0];
-    }
 
     private State getFailedInitialState(Set<State> failedStates) {
         State initialState = null;
@@ -47,9 +60,10 @@ public class Tracer {
         return initialState;
     }
 
-    private PathTree buildPathTree(Model model, Set<State> stateSet, StateFormula formula) throws InvalidStateFormula {
+    private PathTree buildPathTree(Model model, Set<State> stateSet, StateFormula formula, Map<StateFormula, PathTree> pathData) throws InvalidStateFormula {
         PathTree pathTree = new PathTree(formula, 0);
-        StateFormulaHandler.getStates(model, stateSet, formula, pathTree);
+
+        StateFormulaHandler.getStates(model, stateSet, formula, pathTree, pathData);
 
         return pathTree;
     }

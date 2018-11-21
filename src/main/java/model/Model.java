@@ -24,9 +24,31 @@ public class Model {
         return model;
     }
 
+    public static Set<State> getNextStates(Model model, Set<State> stateSet, State state) {
+        Set<State> next = new HashSet<>();
+
+        Transition[] transitions = model.getTransitions();
+
+        for (Transition transition : transitions) {
+            try {
+                State source = model.getState(transition.getSource());
+                if (source.equals(state)) {
+                    State targetState = model.getState(transition.getTarget());
+                    if (stateSet.contains(targetState)) {
+                        next.add(targetState);
+                    }
+                }
+            } catch (InvalidStateException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return next;
+    }
+
     /**
      * Returns the list of the states
-     * 
+     *
      * @return list of state for the given model
      */
     public State[] getStates() {
@@ -35,7 +57,7 @@ public class Model {
 
     /**
      * Returns the list of transitions
-     * 
+     *
      * @return list of transition for the given model
      */
     public Transition[] getTransitions() {
@@ -43,8 +65,8 @@ public class Model {
     }
 
     public State getState(String stateName) throws InvalidStateException {
-        for(State state : states) {
-            if(state.getName().equals(stateName)) {
+        for (State state : states) {
+            if (state.getName().equals(stateName)) {
                 return state;
             }
         }
@@ -53,6 +75,8 @@ public class Model {
     }
 
     public boolean stateReachableViaActions(State source, State target, Set<String> actions) {
+        System.out.println("Checking if state: " + target + " is reachable from " + source + " in " + actions);
+
 
         Transition transition = getTransition(source.getName(), target.getName());
 
@@ -61,8 +85,9 @@ public class Model {
         }
 
         if (actions.size() == 0) {
-            return true;
+            return false;
         }
+
 
         HashSet<String> thisActions = new HashSet<>(Arrays.asList(transition.getActions()));
 

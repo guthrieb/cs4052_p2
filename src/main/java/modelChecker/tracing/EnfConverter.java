@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class EnfConverter {
     private Model model;
-    private Set<String> allActions = new HashSet<>();
+    private Set<String> allActions;
 
     public EnfConverter(Model model) {
         this.model = model;
@@ -72,19 +72,27 @@ public class EnfConverter {
         if (pathFormula instanceof Eventually) {
             Eventually eventually = (Eventually) pathFormula;
 
-            return new ThereExists(new Until(new BoolProp(true), convertToEnf(eventually.stateFormula), eventually.getLeftActions(), eventually.getRightActions()));
+            Set<String> convertedLeftActions = replaceActions(eventually.getLeftActions());
+            Set<String> convertedRightActions = replaceActions(eventually.getRightActions());
+
+            return new ThereExists(new Until(new BoolProp(true), convertToEnf(eventually.stateFormula), convertedLeftActions, convertedRightActions));
         } else if (pathFormula instanceof Next) {
             Next next = (Next) pathFormula;
 
-            return new ThereExists(new Next(convertToEnf(next.stateFormula), next.getActions()));
+            Set<String> convertedActions = replaceActions(next.getActions());
+
+            return new ThereExists(new Next(convertToEnf(next.stateFormula), convertedActions));
         } else if (pathFormula instanceof Always) {
             Always always = (Always) pathFormula;
 
-            return new ThereExists(new Always(convertToEnf(always.stateFormula), always.getActions()));
+            Set<String> actions = replaceActions(always.getActions());
+            return new ThereExists(new Always(convertToEnf(always.stateFormula), actions));
         } else if (pathFormula instanceof Until) {
             Until until = (Until) pathFormula;
 
-            return new ThereExists(new Until(convertToEnf(until.left), convertToEnf(until.right), until.getLeftActions(), until.getRightActions()));
+            Set<String> leftActions = replaceActions(until.getLeftActions());
+            Set<String> rightActions = replaceActions(until.getRightActions());
+            return new ThereExists(new Until(convertToEnf(until.left), convertToEnf(until.right), leftActions, rightActions));
         }
 
         return null;
@@ -99,34 +107,42 @@ public class EnfConverter {
             //∀()Φ ≡ ¬∃()¬Φ AND ¬ EX(true)
             Next next = (Next) pathFormula;
 
-            Not left = new Not(new ThereExists(new Next(new Not(convertToEnf(next.stateFormula)), new HashSet<String>())));
+//            Not left = new Not(new ThereExists(new Next(new Not(convertToEnf(next.stateFormula)), new HashSet<String>())));
+            ThereExists left = new ThereExists(new Next(new Not(convertToEnf(next.stateFormula)), allActions));
 
-            if (next.getActions().size() > 0) {
+            Set<String> nextActions = replaceActions(next.getActions());
+            if (nextActions.size() > 0) {
                 HashSet<String> addActions;
-                addActions = getSubtractionOfActions(next.getActions());
-                Not right = new Not(new ThereExists(new Next(new BoolProp(true), addActions)));
-                return new And(left, right);
+                addActions = getSubtractionOfActions(nextActions);
+//                Not right = new Not(new ThereExists(new Next(new BoolProp(true), addActions)));
+                ThereExists right = new ThereExists(new Next(new BoolProp(true), addActions));
+                return new Not(new Or(left, right));
             } else {
-                return left;
+                return new Not(left);
             }
 //            return new Not(new ThereExists(new Next(new Not(convertToEnf(next.stateFormula)), next.getActions())));
         } else if (pathFormula instanceof Always) {
             //∀Φ ≡ ¬∃♦¬Φ = ¬∃(true U ¬Φ)
             Always always = (Always) pathFormula;
-            Until until = new Until(new BoolProp(true), new Not(convertToEnf(always.stateFormula)), new HashSet<String>(), always.getActions());
+            Set<String> actions = replaceActions(always.getActions());
+            Until until = new Until(new BoolProp(true), new Not(convertToEnf(always.stateFormula)), allActions, actions);
             ThereExists thereExists = new ThereExists(until);
 
-            Not left = new Not(new ThereExists(new Until(
-                    new BoolProp(true), new BoolProp(true), new HashSet<String>(), getSubtractionOfActions(always.getActions()))));
+            ThereExists left = new ThereExists(new Until(
+                    new BoolProp(true), new BoolProp(true), allActions, getSubtractionOfActions(actions)));
 
-            Not right = new Not(new ThereExists(new Until(
-                    new BoolProp(true), new Not(convertToEnf(always.stateFormula)), new HashSet<String>(), new HashSet<String>()
-            )));
+//            Not right = new Not(new ThereExists(new Until(
+            ThereExists right = new ThereExists(new Until(
+                    new BoolProp(true), new Not(convertToEnf(always.stateFormula)), allActions, allActions
+            ));
 
-            if (always.getActions().size() == 0) {
-                return right;
+
+            if (actions.size() == 0) {
+                return new Not(right);
+//                return right;
             } else {
-                return new And(left, right);
+//                return new And(left, right);
+                return new Not(new Or(left, right));
             }
 
 //            return new Not(thereExists);
@@ -134,10 +150,11 @@ public class EnfConverter {
             //∀♦Φ ≡ ¬∃¬Φ
             Eventually eventually = (Eventually) pathFormula;
 
-            Not not = new Not(convertToEnf(eventually.stateFormula));
-            Always always = new Always(not, eventually.getRightActions());
-            ThereExists thereExists = new ThereExists(always);
-            return new Not(thereExists);
+            Until untilConversion = new Until(new BoolProp(true), convertToEnf(eventually.stateFormula), eventually.getLeftActions(), eventually.getRightActions());
+            System.out.println(untilConversion);
+
+            ForAll forAllUntilConversion = new ForAll(untilConversion);
+            return convertToEnf(forAllUntilConversion);
         } else if (pathFormula instanceof Until) {
             //∀(Φ1 U Φ2) ≡ ¬∃(¬Φ2 U (¬Φ1 ∧ ¬Φ2)) ∧ ¬∃¬Φ2
             Until originalUntil = (Until) pathFormula;
@@ -149,58 +166,84 @@ public class EnfConverter {
             Not notLeft = new Not(leftFormula);
             Not notRight = new Not(rightFormula);
 
-            Not rightThereExists = new Not(new ThereExists(new Always(notRight, new HashSet<String>())));
+            ThereExists rightThereExists = new ThereExists(new Always(notRight, allActions));
 //            Not rightThereExists = new Not(new ThereExists(new Always(notRight, originalUntil.getRightActions())));
 
             And nestedAnd = new And(notLeft, notRight);
 //            Not leftThereExists = new Not(new ThereExists(new Until(notRight, nestedAnd, originalUntil.getLeftActions(), originalUntil.getRightActions())));
-            Not leftThereExists = new Not(new ThereExists(new Until(notRight, nestedAnd, new HashSet<String>(), new HashSet<String>())));
+            ThereExists leftThereExists = new ThereExists(new Until(notRight, nestedAnd, allActions, allActions));
 
 
-            //ACTIONS
-            Set<String> notYActions = getSubtractionOfActions(originalUntil.getRightActions());
-            Set<String> notXActions = getSubtractionOfActions(originalUntil.getLeftActions());
+//            Not formula2 = new Not(new ThereExists(new Until(new BoolProp(true), new BoolProp(true), notYActions, notXAndYActions)));
+//            Not thereExists2 = new Not(new ThereExists(new Always(new BoolProp(true), notYActions)));
 
 
-            Set<String> notXAndYActions = new HashSet<>(notXActions);
-            notXAndYActions.addAll(notYActions);
-
-//            Not leftActions = new Not(new ThereExists(new Until(new BoolProp(true), new BoolProp(true), notYActions, notXAndYActions)));
-//            Not rightActions = new Not(new ThereExists(new Always(new BoolProp(true), notYActions)));
-
-
-//            StateFormula leftActions;
+//            StateFormula formula2;
 //            if(originalUntil.getLeftActions().size() > 0) {
-//                leftActions = new Not(new ThereExists(new Until(new And(leftFormula, new Not(rightFormula)), rightFormula, new HashSet<String>(), getSubtractionOfActions(originalUntil.getRightActions()))));
+//                formula2 = new Not(new ThereExists(new Until(new And(leftFormula, new Not(rightFormula)), rightFormula, new HashSet<String>(), getSubtractionOfActions(originalUntil.getRightActions()))));
 //            }
 //            else {
-//                leftActions = new BoolProp(true);
+//                formula2 = new BoolProp(true);
 //            }
 //
-//            StateFormula rightActions;
+//            StateFormula thereExists2;
 //            if(originalUntil.getRightActions().size() > 0) {
-//                rightActions = new Not(new ThereExists(new Until(leftFormula, new And(leftFormula, new Not(rightFormula)), new HashSet<String>(), getSubtractionOfActions(originalUntil.getLeftActions()))));
+//                thereExists2 = new Not(new ThereExists(new Until(leftFormula, new And(leftFormula, new Not(rightFormula)), new HashSet<String>(), getSubtractionOfActions(originalUntil.getLeftActions()))));
 //            } else {
-//                rightActions = new BoolProp(true);
+//                thereExists2 = new BoolProp(true);
 //            }
-//
-            StateFormula leftActions;
-            if (originalUntil.getLeftActions().size() > 0) {
-                leftActions = new Not(new ThereExists(new Until(new BoolProp(true), rightFormula, originalUntil.getLeftActions(), getSubtractionOfActions(originalUntil.getRightActions()))));
+
+            StateFormula formula2;
+            Set<String> newUntilLeftActions = replaceActions(originalUntil.getLeftActions());
+            Set<String> newUntilRightActions = replaceActions(originalUntil.getRightActions());
+            StateFormula thereExists2;
+            if (originalUntil.getLeftActions().size() > 0 || originalUntil.getRightActions().size() > 0) {
+                HashSet<String> rightSubLeftActions = new HashSet<>(newUntilRightActions);
+                rightSubLeftActions.removeAll(newUntilLeftActions);
+
+
+                HashSet<String> leftSubRightActions = new HashSet<>(newUntilLeftActions);
+                leftSubRightActions.removeAll(newUntilRightActions);
+
+
+                HashSet<String> rightAddLeftActions = new HashSet<>(newUntilRightActions);
+                rightAddLeftActions.addAll(newUntilLeftActions);
+
+
+//                formula2 = new ThereExists(new Until(new BoolProp(true), new And(new Not(leftFormula), new Not(rightFormula)), allActions, rightSubLeftActions));
+                formula2 = new ThereExists(new Until(new BoolProp(true), new And(new Not(leftFormula), new Not(rightFormula)), allActions, rightAddLeftActions));
+
+//                formula2 = new Not(new ThereExists(new Until(new BoolProp(true), rightFormula, originalUntil.getLeftActions(), getSubtractionOfActions(originalUntil.getRightActions()))));
+//                Always alwaysClause = new Always(new Not(rightFormula), getSubtractionOfActions(newUntilRightActions));
+                Always alwaysClause = new Always(new Not(rightFormula), getSubtractionOfActions(newUntilRightActions));
+                Or formula1 = new Or(formula2, new ThereExists(alwaysClause));
+
+
+                StateFormula formula3 = new ThereExists(new Until(new BoolProp(true), new And(rightFormula, new Not(leftFormula)), allActions, leftSubRightActions));
+                StateFormula formula4 = new ThereExists(new Until(new BoolProp(true), new And(leftFormula, new Not(rightFormula)), allActions, rightSubLeftActions));
+
+                Or or4 = new Or(formula3, formula4);
+
+                thereExists2 = new Or(formula1, or4);
+
+                HashSet<String> subtractionOfActions = getSubtractionOfActions(rightAddLeftActions);
+                System.out.println("All actions not in x or y: " + subtractionOfActions);
+                thereExists2 = new Or(thereExists2, new ThereExists(new Until(leftFormula, new BoolProp(true), newUntilLeftActions, subtractionOfActions)));
             } else {
-                leftActions = new BoolProp(true);
-            }
-//
-            StateFormula rightActions;
-            if (originalUntil.getRightActions().size() > 0) {
-                rightActions = new Not(new ThereExists(new Until(new BoolProp(true), rightFormula, getSubtractionOfActions(originalUntil.getLeftActions()), originalUntil.getRightActions())));
-            } else {
-                rightActions = new BoolProp(true);
+                formula2 = new BoolProp(false);
+                thereExists2 = new BoolProp(false);
             }
 
 
-            And leftSatisfyingStates = new And(leftActions, rightActions);
-            return new And(leftSatisfyingStates, new And(leftThereExists, rightThereExists));
+//                thereExists2 = new Not(new ThereExists(new Until(new BoolProp(true), rightFormula, getSubtractionOfActions(originalUntil.getLeftActions()), originalUntil.getRightActions())));
+
+
+            if (thereExists2 instanceof BoolProp) {
+                return new Not(new Or(leftThereExists, rightThereExists));
+            }
+
+            Or leftSatisfyingStates = new Or(formula2, thereExists2);
+            return new Not(new Or(leftSatisfyingStates, new Or(leftThereExists, rightThereExists)));
 //            return new And(leftThereExists, rightThereExists);
         } else {
             return null;
@@ -218,4 +261,11 @@ public class EnfConverter {
         return addActions;
     }
 
+    private Set<String> replaceActions(Set<String> actions) {
+        if (actions.size() == 0) {
+            return allActions;
+        } else {
+            return actions;
+        }
+    }
 }
