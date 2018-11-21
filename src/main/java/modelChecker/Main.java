@@ -1,10 +1,6 @@
 package modelChecker;
 
-import formula.FormulaParser;
-import formula.stateFormula.StateFormula;
-import model.Model;
-import modelChecker.graphbuilding.InvalidTracingException;
-import modelChecker.tracing.InvalidStateFormula;
+import modelChecker.graphbuilding.ModelGraphDrawer;
 
 import java.io.IOException;
 
@@ -16,25 +12,28 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+//
+////            StateFormula stateFormula = FormulaParser.parseRawFormulaString("((A(q U r)))");
+//            StateFormula aTrue = FormulaParser.parseRawFormulaString("TRUE");
+//
+//            FormulaParser parser = new FormulaParser(QUERY_FILEPATH);
+//
+//            SimpleModelChecker simpleModelChecker = new SimpleModelChecker();
+//
+//            boolean check = simpleModelChecker.check(Model.parseModel(MODEL_FILEPATH), aTrue, parser.parse());
 
-//            StateFormula stateFormula = FormulaParser.parseRawFormulaString("((A(q U r)))");
-            StateFormula aTrue = FormulaParser.parseRawFormulaString("TRUE");
-
-            FormulaParser parser = new FormulaParser(QUERY_FILEPATH);
-
-            SimpleModelChecker simpleModelChecker = new SimpleModelChecker();
-
-            boolean check = simpleModelChecker.check(Model.parseModel(MODEL_FILEPATH), aTrue, parser.parse());
-
-            if (!check) {
-                simpleModelChecker.getTrace();
-            } else {
-                System.out.println("MODEL HOLDS: " + check);
-            }
-
-
-        } catch (IOException | InvalidStateFormula | InvalidTracingException e) {
+            ModelGraphDrawer drawer = new ModelGraphDrawer();
+            drawer.Draw();
+//
+//            if (!check) {
+//                simpleModelChecker.getTrace();
+//            } else {
+//                System.out.println("MODEL HOLDS: " + check);
+//
+        } catch (IOException e) {
+//    | InvalidStateFormula | InvalidTracingException e) {
             e.printStackTrace();
         }
     }
 }
+

@@ -83,5 +83,12 @@ dependencies {
   testCompile 'junit:junit:4.12'
 
   implementation 'com.google.code.gson:gson:2.8.5'
+
+    compile "guru.nidi:graphviz-java:0.8.0"
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
+    compile group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.21'
+
+
 }
 
