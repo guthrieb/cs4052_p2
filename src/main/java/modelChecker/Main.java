@@ -3,6 +3,7 @@ package modelChecker;
 import modelChecker.graphbuilding.ModelGraphDrawer;
 
 import java.io.IOException;
+import java.util.Collections;
 
 public class Main {
 
@@ -23,7 +24,7 @@ public class Main {
 //            boolean check = simpleModelChecker.check(Model.parseModel(MODEL_FILEPATH), aTrue, parser.parse());
 
             ModelGraphDrawer drawer = new ModelGraphDrawer();
-            drawer.Draw();
+            drawer.Draw(Collections.EMPTY_SET, Collections.EMPTY_SET, Collections.EMPTY_LIST, Collections.EMPTY_LIST);
 //
 //            if (!check) {
 //                simpleModelChecker.getTrace();
