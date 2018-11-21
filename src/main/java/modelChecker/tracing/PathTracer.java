@@ -124,7 +124,6 @@ public class PathTracer {
         visited.add(initialState);
 
         Path path = recurseDFS(new Path(), model, initialState, visited, acceptingStates, untilAcceptingState);
-
         return path.getPath();
     }
 
