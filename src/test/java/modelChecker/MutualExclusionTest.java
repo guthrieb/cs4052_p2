@@ -3,8 +3,9 @@ package modelChecker;
 import formula.FormulaParser;
 import formula.stateFormula.StateFormula;
 import model.Model;
-import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.tracing.InvalidStateFormula;
+import modelChecker.tracing.InvalidTracingException;
+import modelChecker.validitychecking.SimpleModelChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
