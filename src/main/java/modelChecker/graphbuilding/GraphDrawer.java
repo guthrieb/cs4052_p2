@@ -16,8 +16,4 @@ public class GraphDrawer {
         writer.flush();
         writer.close();
     }
-
-    public static void main(String[] args) {
-    }
-
 }

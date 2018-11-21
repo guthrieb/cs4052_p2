@@ -17,28 +17,22 @@ public class StateFormulaHandler {
 
         Set<State> acceptingStates;
         if (formula instanceof AtomicProp) {
-            acceptingStates = getAtomicPropStates(model, statesToCheck, (AtomicProp) formula, nextPathTree, pathData);
-//            return getAtomicPropStates(model, statesToCheck, (AtomicProp)formula);
+            acceptingStates = getAtomicPropStates(statesToCheck, (AtomicProp) formula);
         } else if (formula instanceof BoolProp) {
-            acceptingStates = getBoolPropStates(model, statesToCheck, (BoolProp) formula, nextPathTree, pathData);
-//            return getBoolPropStates(model, statesToCheck, (BoolProp) formula);
+            acceptingStates = getBoolPropStates(statesToCheck, (BoolProp) formula);
         } else if (formula instanceof Not) {
             acceptingStates = getNotStates(model, statesToCheck, (Not) formula, nextPathTree, pathData);
-//            return getNotStates(model, statesToCheck, (Not) formula);
         } else if (formula instanceof Or) {
             acceptingStates = getOrStates(model, statesToCheck, (Or) formula, nextPathTree, pathData);
-//            return getOrStates(model, statesToCheck, (Or) formula);
         } else if (formula instanceof And) {
             acceptingStates = getAndStates(model, statesToCheck, (And) formula, nextPathTree, pathData);
-//            return getAndStates(model, statesToCheck, (And) formula);
         } else if (formula instanceof ThereExists) {
             acceptingStates = getThereExistsStates(model, statesToCheck, (ThereExists) formula, nextPathTree, pathData);
-//            return getThereExistsStates(model, statesToCheck, (ThereExists) formula);
         } else {
             throw new InvalidStateFormula("Property must be in ENF form");
         }
 
-        nextPathTree.setAcceptingStates(new HashSet<State>(acceptingStates));
+        nextPathTree.setAcceptingStates(new HashSet<>(acceptingStates));
         pathTree.children.add(nextPathTree);
         pathData.put(formula, nextPathTree);
 
@@ -51,19 +45,14 @@ public class StateFormulaHandler {
 
         leftAcceptingStates.retainAll(rightAcceptingStates);
 
-//        System.out.println("\nEvaluating And: " + formula);
-//        System.out.println("Accepting States: " + leftAcceptingStates);
         return leftAcceptingStates;
     }
 
     private static Set<State> getOrStates(Model model, Set<State> stateSet, Or formula, PathTree pathTree, Map<StateFormula, PathTree> pathData) throws InvalidStateFormula {
-        //TODO introduce better ENF to make this method redundant
         Set<State> leftAcceptingStates = getStates(model, stateSet, formula.left, pathTree, pathData);
         Set<State> rightAcceptingStates = getStates(model, stateSet, formula.right, pathTree, pathData);
         leftAcceptingStates.addAll(rightAcceptingStates);
 
-//        System.out.println("\nEvaluating Or: " + formula);
-//        System.out.println("Accepting States: " + leftAcceptingStates);
         return leftAcceptingStates;
     }
 
@@ -72,30 +61,24 @@ public class StateFormulaHandler {
         Set<State> subformulaStates = getStates(model, stateSet, formula.stateFormula, pathTree, pathData);
 
         acceptingStates.removeAll(subformulaStates);
-
-//        System.out.println("\nEvaluating Not: " + formula);
-//        System.out.println("Accepting States: " + acceptingStates);
         return acceptingStates;
     }
 
-    private static Set<State> getBoolPropStates(Model model, Set<State> stateSet, BoolProp formula, PathTree pathTree, Map<StateFormula, PathTree> pathData) {
+    private static Set<State> getBoolPropStates(Set<State> stateSet, BoolProp formula) {
         Set<State> acceptingStates = new HashSet<>();
         if (formula.value) {
             acceptingStates.addAll(stateSet);
         }
 
-//        System.out.println("\nEvaluating BoolProp: " + formula);
-//        System.out.println("Accepting States: " + acceptingStates);
+
         return acceptingStates;
     }
 
-    private static Set<State> getAtomicPropStates(Model model, Set<State> stateSet, AtomicProp prop, PathTree pathTree, Map<StateFormula, PathTree> pathData) {
+    private static Set<State> getAtomicPropStates(Set<State> stateSet, AtomicProp prop) {
 
         Set<State> acceptingStates = new HashSet<>();
         for (State state : stateSet) {
             for (String label : state.getLabels()) {
-
-
                 if (prop.label.equals(label)) {
                     acceptingStates.add(state);
                 }
@@ -110,12 +93,7 @@ public class StateFormulaHandler {
     private static Set<State> getThereExistsStates(Model model, Set<State> stateSet, ThereExists exists, PathTree pathTree, Map<StateFormula, PathTree> pathData) throws InvalidStateFormula {
         PathFormula pathFormula = exists.pathFormula;
 
-        Set<State> acceptingStates = PathFormulaHandler.getStates(model, stateSet, pathFormula, pathTree, pathData);
-
-
-//        System.out.println("\nEvaluating Exists: " + exists);
-//        System.out.println("Accepting States: " + acceptingStates);
-        return acceptingStates;
+        return PathFormulaHandler.getStates(model, stateSet, pathFormula, pathTree, pathData);
     }
 
 

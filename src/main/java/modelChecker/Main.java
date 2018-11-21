@@ -3,8 +3,9 @@ package modelChecker;
 import formula.FormulaParser;
 import formula.stateFormula.StateFormula;
 import model.Model;
-import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.tracing.InvalidStateFormula;
+import modelChecker.tracing.InvalidTracingException;
+import modelChecker.validitychecking.SimpleModelChecker;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -18,7 +19,6 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-//            StateFormula stateFormula = FormulaParser.parseRawFormulaString("((A(q U r)))");
             StateFormula aTrue = FormulaParser.parseRawFormulaString("TRUE");
 
             FormulaParser parser = new FormulaParser(QUERY_FILEPATH);
@@ -34,7 +34,6 @@ public class Main {
             } else {
                 System.out.println("MODEL HOLDS: " + check);
             }
-
 
         } catch (IOException | InvalidStateFormula | InvalidTracingException e) {
             e.printStackTrace();

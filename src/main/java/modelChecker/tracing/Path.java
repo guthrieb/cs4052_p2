@@ -13,19 +13,20 @@ public class Path {
         path.add(toAdd);
     }
 
-    public void remove() {
+    void remove() {
         path.remove(path.size() - 1);
     }
 
-    public boolean isFinished() {
+    boolean isFinished() {
         return finished;
     }
 
-    public void setFinished(boolean finished) {
-        this.finished = finished;
+    void setFinished() {
+        this.finished = true;
     }
 
-    public List<State> getPath() {
+    List<State> getPath() {
         return path;
     }
+
 }

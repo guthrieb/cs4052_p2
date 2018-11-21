@@ -1,9 +1,9 @@
-package modelChecker;
+package modelChecker.validitychecking;
 
 import formula.stateFormula.StateFormula;
 import model.Model;
-import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.tracing.InvalidStateFormula;
+import modelChecker.tracing.InvalidTracingException;
 
 /**
  * Defines the interface to model checker.
@@ -27,5 +27,5 @@ public interface ModelChecker {
     boolean check(Model model, StateFormula constraint, StateFormula query) throws InvalidStateFormula;
 
     // Returns a trace of the previous check attempt if it failed.
-    String[] getTrace() throws InvalidTracingException, InvalidStateFormula;
+    String[] getTrace() throws InvalidStateFormula, InvalidTracingException;
 }

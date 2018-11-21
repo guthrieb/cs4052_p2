@@ -5,8 +5,8 @@ import formula.stateFormula.StateFormula;
 import formula.stateFormula.StateFormulaHandler;
 import model.Model;
 import model.State;
-import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.graphbuilding.PathTree;
+import modelChecker.validitychecking.EnfConverter;
 
 import java.util.*;
 
@@ -33,7 +33,7 @@ public class Tracer {
             throw new InvalidTracingException("Passed Invalid Formula: " + formula);
         }
 
-        PathTree tree = buildPathTree(model, stateSet, stateFormula, pathData);
+        buildPathTree(model, stateSet, stateFormula, pathData);
 
 
         System.out.println(stateFormula);
@@ -43,7 +43,7 @@ public class Tracer {
         }
 
 
-        List<State> path = PathTracer.generatePath(model, initialState, stateSet, failedStates, stateFormula, tree, pathData);
+        List<State> path = PathTracer.generatePath(model, initialState, stateSet, stateFormula, pathData);
 
         String[] strPath = new String[path.size()];
         for (int i = 0; i < strPath.length; i++) {

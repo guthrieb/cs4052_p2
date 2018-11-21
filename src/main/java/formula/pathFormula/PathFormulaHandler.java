@@ -57,15 +57,32 @@ public class PathFormulaHandler {
             }
         }
 
-        System.out.println("\nAlways Evaluated: " + formula + ", via " + formula.getActions());
-        System.out.println("Accepting States: " + acceptingStates);
         return acceptingStates;
     }
 
+    private static Set<State> getAcceptingNextStates(Model model, Set<State> stateSet, Next formula, PathTree pathTree, Map<StateFormula, PathTree> pathData) throws InvalidStateFormula {
+
+        Set<State> subformulaAcceptingStates = StateFormulaHandler.getStates(model, stateSet, formula.stateFormula, pathTree, pathData);
+
+
+        Set<State> finalAcceptingStates = new HashSet<>();
+        for (State state : stateSet) {
+            Set<State> nextStates = Model.getNextStates(model, stateSet, state);
+
+            for (State nextState : nextStates) {
+                if (subformulaAcceptingStates.contains(nextState)) {
+                    if (model.stateReachableViaActions(state, nextState, formula.getActions())) {
+                        finalAcceptingStates.add(state);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return finalAcceptingStates;
+    }
+
     private static Set<State> getAcceptingUntilStates(Model model, Set<State> stateSet, Until formula, PathTree pathTree, Map<StateFormula, PathTree> pathData) throws InvalidStateFormula {
-
-
-
         //Conditions of right side met, regardless of transitions
         Set<State> rightAcceptingStates = StateFormulaHandler.getStates(model, stateSet, formula.right, pathTree, pathData);
 
@@ -126,35 +143,6 @@ public class PathFormulaHandler {
         Set<State> finalAcceptingStates = new HashSet<>();
         finalAcceptingStates.addAll(finalLeftAcceptingStates);
         finalAcceptingStates.addAll(finalRightAcceptingStates);
-
-
-        System.out.println("\nUntil Evaluated: " + formula + "via: " + formula.getLeftActions() + ", " + formula.getRightActions());
-        System.out.println("Accepting States: " + finalAcceptingStates);
-
-        return finalAcceptingStates;
-    }
-
-    private static Set<State> getAcceptingNextStates(Model model, Set<State> stateSet, Next formula, PathTree pathTree, Map<StateFormula, PathTree> pathData) throws InvalidStateFormula {
-
-        Set<State> subformulaAcceptingStates = StateFormulaHandler.getStates(model, stateSet, formula.stateFormula, pathTree, pathData);
-
-
-        Set<State> finalAcceptingStates = new HashSet<>();
-        for (State state : stateSet) {
-            Set<State> nextStates = Model.getNextStates(model, stateSet, state);
-
-            for (State nextState : nextStates) {
-                if (subformulaAcceptingStates.contains(nextState)) {
-                    if (model.stateReachableViaActions(state, nextState, formula.getActions())) {
-                        finalAcceptingStates.add(state);
-                        break;
-                    }
-                }
-            }
-        }
-
-        System.out.println("\nNext Evaluated: " + formula);
-        System.out.println("Accepting States: " + finalAcceptingStates);
 
         return finalAcceptingStates;
     }

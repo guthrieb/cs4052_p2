@@ -16,7 +16,7 @@ import java.util.*;
 public class PathTracer {
 
 
-    public static List<State> generatePath(Model model, State initialState, Set<State> stateSet, Set<State> failedStates, StateFormula formula, PathTree tree, HashMap<StateFormula, PathTree> pathData) {
+    public static List<State> generatePath(Model model, State initialState, Set<State> stateSet, StateFormula formula, HashMap<StateFormula, PathTree> pathData) {
 
         if (formula instanceof ThereExists) {
 
@@ -28,15 +28,10 @@ public class PathTracer {
             StateFormula right = or.right;
             StateFormula left = or.left;
 
-            System.out.println(left);
-            System.out.println(right);
-            System.out.println("Left accepting: " + pathData.get(left).getAcceptingStates());
-            System.out.println("Right accepting: " + pathData.get(right).getAcceptingStates());
-
             if (pathData.get(left).getAcceptingStates().contains(initialState)) {
-                return generatePath(model, initialState, stateSet, failedStates, left, tree, pathData);
+                return generatePath(model, initialState, stateSet, left, pathData);
             } else {
-                return generatePath(model, initialState, stateSet, failedStates, right, tree, pathData);
+                return generatePath(model, initialState, stateSet, right, pathData);
             }
         }
 
@@ -48,18 +43,17 @@ public class PathTracer {
 
 
         if (pathFormula instanceof Next) {
-            List<State> states = handleNext(model, thereExists, stateSet, (Next) pathFormula, initialState, pathData);
-            return states;
+            return handleNext(model, stateSet, (Next) pathFormula, initialState, pathData);
         } else if (pathFormula instanceof Always) {
-            return handleAlways(model, thereExists, stateSet, (Always) pathFormula, initialState, pathData);
+            return handleAlways(model, thereExists, stateSet, initialState, pathData);
         } else if (pathFormula instanceof Until) {
-            return handleUntil(model, thereExists, stateSet, (Until) pathFormula, initialState, pathData);
+            return handleUntil(model, thereExists, (Until) pathFormula, initialState, pathData);
         }
 
         return new ArrayList<>();
     }
 
-    private static List<State> handleUntil(Model model, ThereExists thereExists, Set<State> stateSet, Until pathFormula, State initialState, HashMap<StateFormula, PathTree> pathData) {
+    private static List<State> handleUntil(Model model, ThereExists thereExists, Until pathFormula, State initialState, HashMap<StateFormula, PathTree> pathData) {
 
         PathTree pathTree = pathData.get(thereExists);
         Set<State> allAcceptingStatesOnUntil = pathTree.getAcceptingStates();
@@ -71,11 +65,10 @@ public class PathTracer {
             return new ArrayList<>(Collections.singletonList(initialState));
         }
         depthFirstSearch(model, rightAcceptingStates, initialState, allAcceptingStatesOnUntil);
-
-        return null;
+        return depthFirstSearch(model, rightAcceptingStates, initialState, allAcceptingStatesOnUntil);
     }
 
-    private static List<State> handleNext(Model model, ThereExists parentFormula, Set<State> stateSet, Next pathFormula,
+    private static List<State> handleNext(Model model, Set<State> stateSet, Next pathFormula,
                                           State initialState, HashMap<StateFormula, PathTree> pathData) {
         Set<State> acceptingSubformulaOfNext = pathData.get(pathFormula.stateFormula).getAcceptingStates();
 
@@ -92,12 +85,12 @@ public class PathTracer {
         return path;
     }
 
-    private static List<State> handleAlways(Model model, ThereExists parentFormula, Set<State> stateSet, Always pathFormula,
+    private static List<State> handleAlways(Model model, ThereExists parentFormula, Set<State> stateSet,
                                             State initialState, HashMap<StateFormula, PathTree> pathData) {
         Set<State> acceptingSubformulaOfNext = pathData.get(parentFormula).getAcceptingStates();
 
 
-        return recurseAlways(model, stateSet, initialState, new ArrayList<State>(Collections.singletonList(initialState)), acceptingSubformulaOfNext);
+        return recurseAlways(model, stateSet, initialState, new ArrayList<>(Collections.singletonList(initialState)), acceptingSubformulaOfNext);
     }
 
     private static List<State> recurseAlways(Model model, Set<State> stateSet, State currentState, List<State> previousStates, Set<State> acceptingStates) {
@@ -126,7 +119,6 @@ public class PathTracer {
      * @return path from initial state to state in accepting states
      */
     private static List<State> depthFirstSearch(Model model, Set<State> acceptingStates, State initialState, Set<State> untilAcceptingState) {
-        List<State> currentSearch = new ArrayList<>();
 
         Set<State> visited = new HashSet<>();
         visited.add(initialState);
@@ -140,13 +132,11 @@ public class PathTracer {
         currentPath.add(initialState);
         Set<State> nextStates = Model.getNextStates(model, untilAcceptingState, initialState);
 
-        System.out.println(initialState);
-        System.out.println("Next States: " + nextStates);
 
         for (State state : nextStates) {
             if (acceptingStates.contains(state)) {
                 currentPath.add(state);
-                currentPath.setFinished(true);
+                currentPath.setFinished();
                 return currentPath;
             }
         }

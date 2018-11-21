@@ -1,13 +1,12 @@
-package modelChecker;
+package modelChecker.validitychecking;
 
 import formula.stateFormula.StateFormula;
 import formula.stateFormula.StateFormulaHandler;
 import model.Model;
 import model.State;
-import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.graphbuilding.PathTree;
-import modelChecker.tracing.EnfConverter;
 import modelChecker.tracing.InvalidStateFormula;
+import modelChecker.tracing.InvalidTracingException;
 import modelChecker.tracing.Tracer;
 
 import java.util.Arrays;
@@ -71,7 +70,7 @@ public class SimpleModelChecker implements ModelChecker {
     }
 
     @Override
-    public String[] getTrace() throws InvalidTracingException, InvalidStateFormula {
+    public String[] getTrace() throws InvalidStateFormula, InvalidTracingException {
         Tracer tracer = new Tracer();
 
         return tracer.getTrace(model, constraintRestrictedStates, queriedStates, query);
