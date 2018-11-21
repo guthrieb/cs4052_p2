@@ -2,7 +2,7 @@
   "states": [
     {
       "init": true,
-      "name": "s0",
+      "name": s0,
       "label": [
         "n",
         "m",
@@ -11,7 +11,7 @@
     },
     {
       "init": false,
-      "name": "s1",
+      "name": s1,
       "label": [
         "w",
         "m",
@@ -20,7 +20,7 @@
     },
     {
       "init": false,
-      "name": "s2",
+      "name": s2,
       "label": [
         "c",
         "m"
@@ -28,7 +28,7 @@
     },
     {
       "init": false,
-      "name": "s3",
+      "name": s3,
       "label": [
         "n",
         "x",
@@ -37,7 +37,7 @@
     },
     {
       "init": false,
-      "name": "s4",
+      "name": s4,
       "label": [
         "d",
         "n"
@@ -45,7 +45,7 @@
     },
     {
       "init": false,
-      "name": "s5",
+      "name": s5,
       "label": [
         "w",
         "x",
@@ -54,7 +54,7 @@
     },
     {
       "init": false,
-      "name": "s6",
+      "name": s6,
       "label": [
         "c",
         "x"
@@ -62,7 +62,7 @@
     },
     {
       "init": false,
-      "name": "s7",
+      "name": s7,
       "label": [
         "w",
         "d"

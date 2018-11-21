@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b4921a5-e13e-49a4-b2b4-034855d1962c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/modelChecker/MutualExclusionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/mutual-exclusion.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mutual-exclusion.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -15,6 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Simple$All_in_Simple_test__1_.ic" NAME="All in Simple_test (1) Coverage Results" MODIFIED="1542833041512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Simple$All_in_Simple_test.ic" NAME="All in Simple_test Coverage Results" MODIFIED="1542589828262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
@@ -164,8 +170,8 @@
         <counts>
           <entry key="gradle" value="1" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="9" />
-          <entry key="json" value="4" />
+          <entry key="java" value="14" />
+          <entry key="json" value="20" />
           <entry key="png" value="4" />
         </counts>
       </usages-collector>
@@ -173,22 +179,24 @@
         <counts>
           <entry key="Groovy" value="1" />
           <entry key="Image" value="4" />
-          <entry key="JAVA" value="9" />
-          <entry key="JSON" value="4" />
+          <entry key="JAVA" value="14" />
+          <entry key="JSON" value="20" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="7" />
-          <entry key="java" value="1480" />
+          <entry key="java" value="1724" />
+          <entry key="json" value="41" />
           <entry key="txt" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="7" />
-          <entry key="JAVA" value="1480" />
+          <entry key="JAVA" value="1724" />
+          <entry key="JSON" value="41" />
           <entry key="PLAIN_TEXT" value="141" />
         </counts>
       </usages-collector>
@@ -203,66 +211,18 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/Tracer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/test/resources/ctl1.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/test/resources/ctl2.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../../../scratch/sm347/.gradle/caches/modules-2/files-2.1/guru.nidi/graphviz-java/0.8.0/ebf05a12a240c590d25af4cf4ae1eb0a53764a2b/graphviz-java-0.8.0-sources.jar!/guru/nidi/graphviz/model/Graph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../../../scratch/sm347/.gradle/caches/modules-2/files-2.1/guru.nidi/graphviz-java/0.8.0/ebf05a12a240c590d25af4cf4ae1eb0a53764a2b/graphviz-java-0.8.0-sources.jar!/guru/nidi/graphviz/model/ImmutableGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="47" column="5" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="47" selection-end-column="5" />
-              <folding>
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1912#1913#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drawings/ex2.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/ModelChecker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/test/resources/constraint2.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -271,8 +231,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drawings/ex1.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-1.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-2.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="57" column="70" lean-forward="true" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutualExclusionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/ctl5.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/ctl6.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="2" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -727,10 +735,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/modelChecker/tracing/TraceGenerator.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/model2.json" />
-        <option value="$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/other-examples/test_query1.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/test_query2.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/test_query4.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/test_query3.json" />
@@ -741,7 +745,6 @@
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/next/next_actions_query2.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/always/next_actions_query1.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/always/always_actions_query1.json" />
-        <option value="$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/always/always_actions_query2.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/eventually/eventually_actions_query1.json" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/eventually/eventually_actions_query2.json" />
@@ -765,7 +768,6 @@
         <option value="$PROJECT_DIR$/src/main/java/formula/stateFormula/StateFormulaHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/PathTree.java" />
         <option value="$PROJECT_DIR$/src/main/java/formula/pathFormula/PathFormulaHandler.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/mutual-exclusion.json" />
         <option value="$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java" />
         <option value="$PROJECT_DIR$/src/test/resources/other-examples/forall/until/until_actions_query4.json" />
         <option value="$PROJECT_DIR$/utilities/model-exclusion.dot" />
@@ -778,6 +780,12 @@
         <option value="$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelChecker/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/mutual-exclusion-test1.json" />
+        <option value="$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/mutual-exclusion.json" />
+        <option value="$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-1.json" />
+        <option value="$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-2.json" />
+        <option value="$PROJECT_DIR$/src/test/java/modelChecker/MutualExclusionTest.java" />
       </list>
     </option>
   </component>
@@ -810,37 +818,72 @@
             <path>
               <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="drawings" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: guru.nidi:graphviz-java:0.8.0" type="70bed36:NamedLibraryElementNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: guru.nidi:graphviz-java:0.8.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="graphviz-java-0.8.0.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="formula" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: guru.nidi:graphviz-java:0.8.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="graphviz-java-0.8.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="graphviz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: guru.nidi:graphviz-java:0.8.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="graphviz-java-0.8.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="graphviz" type="462c0819:PsiDirectoryNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="modelChecker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="modelChecker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Simple" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4052_p2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -855,7 +898,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///cs/home/jg229/Documents/CS4052/assignment/src/main/java/modelChecker/tracing/EnfConverter.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542829475824" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542833041113" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -864,17 +907,8 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-      <recent name="$PROJECT_DIR$/src/test/resources/other-examples/thereexists" />
-      <recent name="$PROJECT_DIR$/src/test/resources/other-examples/until" />
-    </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="modelChecker.graphbuilding.FormulaTree" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="modelChecker.graphbuilding" />
-      <recent name="modelChecker.tracing" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/utilities" />
@@ -882,6 +916,15 @@
       <recent name="$PROJECT_DIR$/src/test/resources/testing" />
       <recent name="$PROJECT_DIR$/src/test/resources/other-examples/thereexists/until" />
       <recent name="$PROJECT_DIR$/src/test/resources/other-examples/forall" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="modelChecker.graphbuilding" />
+      <recent name="modelChecker.tracing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/test/resources/other-examples/thereexists" />
+      <recent name="$PROJECT_DIR$/src/test/resources/other-examples/until" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -896,7 +939,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in Simple_test">
+  <component name="RunManager" selected="JUnit.All in Simple_test (1)">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modelChecker.Main" />
       <module name="Simple_main" />
@@ -910,6 +953,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in Simple_test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Simple_test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in Simple_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Simple_test" />
       <option name="PACKAGE_NAME" value="" />
@@ -918,7 +969,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModelCheckerTestAsCTLForAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MutualExclusionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Simple_test" />
       <extension name="coverage">
         <pattern>
@@ -927,23 +978,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="modelChecker" />
-      <option name="MAIN_CLASS_NAME" value="modelChecker.ModelCheckerTestAsCTLForAll" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelCheckerTestAsCTLForAll.trueForallUntilActions2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Simple_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="modelChecker.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="modelChecker" />
-      <option name="MAIN_CLASS_NAME" value="modelChecker.ModelCheckerTestAsCTLForAll" />
-      <option name="METHOD_NAME" value="trueForallUntilActions2" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="modelChecker.MutualExclusionTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -964,18 +999,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ModelCheckerTestAsCTLForAll.trueForallUntilActions2" />
-      <item itemvalue="JUnit.ModelCheckerTestAsCTLForAll" />
       <item itemvalue="JUnit.All in Simple_test" />
       <item itemvalue="JUnit.other-examples in Simple_test" />
+      <item itemvalue="JUnit.MutualExclusionTest" />
+      <item itemvalue="JUnit.All in Simple_test (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Simple_test (1)" />
+        <item itemvalue="JUnit.MutualExclusionTest" />
         <item itemvalue="JUnit.All in Simple_test" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.other-examples in Simple_test" />
-        <item itemvalue="JUnit.ModelCheckerTestAsCTLForAll" />
-        <item itemvalue="JUnit.ModelCheckerTestAsCTLForAll.trueForallUntilActions2" />
       </list>
     </recent_temporary>
   </component>
@@ -1032,39 +1067,46 @@
       <option name="project" value="LOCAL" />
       <updated>1542829637926</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merged graph drawing branch with dev branch">
+      <created>1542829808199</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1542829808199</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 53m 59s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 28m 43s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 56m 27s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 29m 42s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 57m 39s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 30m 10s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 58m 20s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 30m 33s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.19 at 22h 58m 32s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 30m 52s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.21 at 15h 38m 43s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 31m 04s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.21 at 15h 44m 35s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 31m 46s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.21 at 15h 51m 38s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 31m 57s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.21 at 18h 25m 41s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 32m 02s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Simple_test - 2018.11.21 at 19h 40m 06s.xml">
-      <configuration name="All in Simple_test" configurationId="JUnit" />
+    <history-entry file="MutualExclusionTest - 2018.11.21 at 20h 33m 09s.xml">
+      <configuration name="MutualExclusionTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
@@ -1072,9 +1114,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15491453" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15491453" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1083,7 +1124,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49786323" weight="0.32915717" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5090812" weight="0.43052393" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.67467946" visible="true" weight="0.43052393" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946582" weight="0.3997722" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1091,9 +1132,9 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49893162" weight="0.15603645" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.48504272" weight="0.24487472" />
       <window_info anchor="bottom" id="Statistic" order="9" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.49893162" visible="true" weight="0.32915717" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49893162" weight="0.32915717" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49358973" weight="0.25284737" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50106835" side_tool="true" visible="true" weight="0.32915717" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.3253205" side_tool="true" visible="true" weight="0.43052393" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1193,104 +1234,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/thereexists/always/always_actions_query2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/thereexists/until/test_query6.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/thereexists/until/test_query2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/forall/until/until_actions_query2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/thereexists/until/test_query3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/InvalidStateFormula.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/other-examples/thereexists/until/test_query7.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/testing/model3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1785">
-          <caret line="157" column="77" selection-start-line="157" selection-start-column="77" selection-end-line="157" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestasCTLThereExists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="250" column="44" lean-forward="true" selection-start-line="250" selection-start-column="44" selection-end-line="250" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/Until.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/InvalidTracingException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding>
-            <element signature="e#131#132#0" expanded="true" />
-            <element signature="e#154#155#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/stateFormula/Not.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1320,13 +1263,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/formula/pathFormula/PathFormulaHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/resources/model2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/PathTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-123">
@@ -1422,13 +1358,6 @@
     <entry file="file://$PROJECT_DIR$/utilities/model1diagram.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mutual-exclusion.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/SimpleModelChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1452,9 +1381,6 @@
           <caret line="71" column="41" lean-forward="true" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/model1.json">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/model2diagram.png">
       <provider selected="true" editor-type-id="images" />
@@ -1491,22 +1417,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../scratch/sm347/.gradle/caches/modules-2/files-2.1/guru.nidi/graphviz-java/0.8.0/ebf05a12a240c590d25af4cf4ae1eb0a53764a2b/graphviz-java-0.8.0-sources.jar!/guru/nidi/graphviz/model/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drawings/ex2.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/ModelGraphDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1515,6 +1427,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/Tracer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1529,17 +1448,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/graphbuilding/GraphDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="150">
+          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/tracing/Tracer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/modelChecker/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="375">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/formula/FormulaParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../scratch/sm347/.gradle/caches/modules-2/files-2.1/guru.nidi/graphviz-java/0.8.0/ebf05a12a240c590d25af4cf4ae1eb0a53764a2b/graphviz-java-0.8.0-sources.jar!/guru/nidi/graphviz/model/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/model4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/model2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutual-exclusion.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="169" column="5" lean-forward="true" selection-start-line="169" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/model3.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/constraint1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/constraint2.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/ctl1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/ctl2.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/ctl5.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/ctl6.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/model1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mutual-exclusion-test-2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/ModelCheckerTestCTL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="57" column="70" lean-forward="true" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/modelChecker/MutualExclusionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
