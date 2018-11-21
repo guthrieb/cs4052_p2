@@ -7,6 +7,7 @@ import modelChecker.graphbuilding.InvalidTracingException;
 import modelChecker.tracing.InvalidStateFormula;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -27,7 +28,9 @@ public class Main {
             boolean check = simpleModelChecker.check(Model.parseModel(MODEL_FILEPATH), aTrue, parser.parse());
 
             if (!check) {
-                simpleModelChecker.getTrace();
+                String[] trace = simpleModelChecker.getTrace();
+
+                System.out.println("MODEL DOES NOT HOLD, EXAMPLE TRACE: " + Arrays.toString(trace));
             } else {
                 System.out.println("MODEL HOLDS: " + check);
             }

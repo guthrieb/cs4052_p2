@@ -45,7 +45,12 @@ public class Tracer {
 
         List<State> path = PathTracer.generatePath(model, initialState, stateSet, failedStates, stateFormula, tree, pathData);
 
-        return new String[0];
+        String[] strPath = new String[path.size()];
+        for (int i = 0; i < strPath.length; i++) {
+            strPath[i] = path.get(i).getName();
+        }
+
+        return strPath;
     }
 
 
